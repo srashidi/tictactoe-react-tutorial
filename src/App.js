@@ -26,8 +26,10 @@ function Board({ xIsNext, squares, onPlay }) {
     let status;
     if (winner) {
         status = "Winner: " + winner;
-    } else {
+    } else if (squares.includes(null)) {
         status = "Next player: " + (xIsNext ? "X" : "O");
+    } else {
+        status = "It's a draw";
     }
 
     // Inspiration from https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
